@@ -1,35 +1,27 @@
-"""project URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
+from django.conf import settings
 from django.contrib import admin
-from django.urls import include, path
-from rest_framework.documentation import include_docs_urls
-from rest_framework.schemas import get_schema_view
-from rest_framework_swagger.views import get_swagger_view
-
-API_TITLE = 'Crime Reporting System API'
-API_DESCRIPTION = 'An API for reporting crime incidents.'
-schema_view = get_swagger_view(title=API_TITLE)
+from django.urls import path,include
+from django.conf.urls.static import static
+from ReportSystem import views
 
 urlpatterns = [
-    path('reportsystem/', include('ReportSystem.urls')),
     path('admin/', admin.site.urls),
-    path('api/', include('api.urls')),
-    path('api-auth/', include('rest_framework.urls')),
-    path('api/rest-auth/', include('rest_auth.urls')),
-    path('api/rest-auth/registration/', include('rest_auth.registration.urls')),
-    path('docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION)),
-    path('swagger-docs/', schema_view),
-]
+    path('', views.index,name='index'),
+    path('reporting/', views.reporting,name='reporting'),
+    path('viewStatus/', views.viewStatus,name='viewStatus'),
+    path('admin_login/', views.admin_login,name='admin_login'),
+    path('dashboard/', views.dashboard,name='dashboard'),
+    path('logout/', views.Logout,name='logout'),
+    path('addTeam/', views.addTeam,name='addTeam'),
+    path('manageTeam/', views.manageTeam,name='manageTeam'),
+    path('editTeam/<int:pid>/', views.editTeam,name='editTeam'),
+    path('deleteTeam/<int:pid>/', views.deleteTeam,name='deleteTeam'),
+    path('changePassword/', views.changePassword,name='changePassword'),
+    path('search/', views.search,name='search'),
+    path('allRequest/', views.allRequest,name='allRequest'),
+    path('newRequest/', views.newRequest,name='newRequest'),
+    path('assignRequest/', views.assignRequest,name='assignRequest'),
+    path('teamontheway/', views.teamontheway,name='teamontheway'),
+    path('workinprogress/', views.workinprogress,name='workinprogress'),
+    path('completeRequest/', views.completeRequest,name='completeRequest'),
+]+static(settings.MEDIA_URL,documentsroot=settings.MEDIA_ROOT)

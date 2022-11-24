@@ -1,0 +1,117 @@
+{% extends 'adminNavbar.html' %}
+{% block main %}
+{% load static %}
+
+<section class="content">
+            <div class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1 class="m-0">Dashboard</h1>
+						</div>
+						<!-- /.col -->
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item active">Dashboard</li>
+							</ol>
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+
+			<div class="container-fluid">
+					<!-- Small boxes (Stat box) -->
+					<div class="row">
+						<div class="col-lg-4 col-6">
+							<!-- small box -->
+							<div class="small-box bg-info">
+								<div class="inner">
+									<h3>total new Request</h3>
+									<p>New Fraud Request</p>
+								</div>
+								<a href="#" class="small-box-footer">More info <i
+									class="fas fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+
+						<!-- ./col -->
+						<div class="col-lg-4 col-6">
+							<!-- small box -->
+							<div class="small-box bg-success">
+								<div class="inner">
+									<h3>total fraud report</h3>
+									<p>Total Fraud Reporting</p>
+								</div>
+								<a href="#" class="small-box-footer">More info <i
+									class="fas fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-4 col-6">
+							<!-- small box -->
+							<div class="small-box bg-warning">
+								<div class="inner">
+									<h3>total completed Request</h3>
+									<p>Fraud Request Completed</p>
+								</div>
+								<a href="#" class="small-box-footer">More
+									info <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-4 col-6">
+							<!-- small box -->
+							<div class="small-box bg-danger">
+								<div class="inner">
+									<h3>total assign fraud request</h3>
+									<p>Assigned Fraud Request</p>
+								</div>
+								<a href="#" class="small-box-footer">More info <i
+									class="fas fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+						<!-- ./col -->
+
+						<!-- ./col -->
+						<div class="col-lg-4 col-6">
+
+							<!-- small box -->
+							<div class="small-box bg-secondary">
+								<div class="inner">
+									<h3>total on the way</h3>
+									<p>Team On the Way Request</p>
+								</div>
+								<a href="#" class="small-box-footer">More info
+									<i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+						<!-- ./col -->
+
+						<!-- ./col -->
+						<div class="col-lg-4 col-6">
+
+							<!-- small box -->
+							<div class="small-box bg-danger">
+								<div class="inner">
+									<h3>total workinprogress</h3>
+									<p>Fraud Relief Work in Progress</p>
+								</div>
+								<a href="#" class="small-box-footer">More
+									info <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+						<!-- ./col -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+</section>
+{% endblock %}
