@@ -7,6 +7,7 @@ from ReportSystem import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index,name='index'),
+    path('viewStatusDetails/', views.status,name='status'),
     path('reporting/', views.reporting,name='reporting'),
     path('viewStatus/', views.viewStatus,name='viewStatus'),
     path('admin_login/', views.admin_login,name='admin_login'),

@@ -9,6 +9,9 @@ from django.contrib.auth.models import User
 def index(request):
     return render(request,'index.html')
 
+def status(request):
+    return render(request, 'viewStatusDetails.html')
+
 def reporting(request):
     error = ""
     if request.method == 'POST':
