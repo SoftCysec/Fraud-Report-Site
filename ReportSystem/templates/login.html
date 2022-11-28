@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<div class="main">  	
+	<input type="checkbox" id="chk" aria-hidden="true">
+
+		<div class="signup">
+			<form method="POST">{% csrf_token %}
+				<label for="chk" aria-hidden="true">Sign up</label>
+				{{form.username}}
+				{{form.email}}
+				{{form.first_name}}
+				{{form.last_name}}
+				{{form.groups}}
+				{{form.password1}}
+				{{form.password2}}
+				<button name="sign-up">Sign up</button>
+			</form>
+		</div>
+
+		<div class="login">
+			<form method="GET">
+				<label for="chk" aria-hidden="true">Login</label>
+				<input type="text" name="username" placeholder="Username" required="">
+				<input type="password" name="pswd" placeholder="Password" required="">
+				<button name="sign-in">Login</button>
+			</form>
+		</div>
+</div>
+{% endblock %}

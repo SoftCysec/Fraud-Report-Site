@@ -1,13 +1,55 @@
 from django.shortcuts import redirect, render
 from django.db.models import Q
+from django.views import View
 from django.contrib.auth import authenticate,login,logout
-
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
+from ReportSystem.forms import UserForm
 from . models import *
 from django.contrib.auth.models import User
+from django.contrib.auth.models import Group
 
 # Create your views here.
 def index(request):
     return render(request,'index.html')
+
+class LoginView(View):
+    
+    def get(self,request):
+        form = UserForm()
+        if "sign-in" in request.GET:
+            username = request.GET.get("username")
+            password = request.GET.get("pswd")
+            user = authenticate(username=username,password=password)
+            if user is not None:
+                login(request,user)
+                return redirect('index')
+            else:
+                messages.info(request,'Login attemp failed.')
+                return redirect('account_login')
+        return render(request,'login.html',{'form':form})
+    
+    def post(self,request):
+        if "sign-up" in request.POST:
+            form = UserForm(request.POST)
+            if form.is_valid():
+                user = form.save()
+                selected_group = request.POST.get("groups")
+                group, created = Group.objects.get_or_create(name=selected_group)
+                user.groups.add(group)
+                messages.success(request,'Account has been created succesfully')
+                return redirect('account_login')
+            else:
+                messages.error(request,form.errors)
+                return redirect('account_login')
+        return render(request,'login.html')
+
+class LogoutView(View):
+
+    def get(self,request):
+        logout(request)
+        messages.success(request,'Logged out succesfully.')
+        return redirect('account_login')
 
 def status(request):
     return render(request, 'viewStatusDetails.html')

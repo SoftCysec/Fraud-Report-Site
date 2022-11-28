@@ -81,7 +81,7 @@
 							class="img-circle elevation-2" alt="User Image">
 					</div>
 					<div class="info">
-						<a href="#">Admin &nbsp;&nbsp;</a> <a href="#"><i
+						<a href="#">{{user.username}} &nbsp;&nbsp;</a> <a href="#"><i
 							class="fa fa-circle text-success"></i> Online</a>
 					</div>
 				</div>
@@ -114,41 +114,10 @@
 						</li>
 
 						<li class="nav-item">
-							<a href="#" class="nav-link"> <i class="nav-icon fas fa-tree"></i>
-								<p>Fraud Alerts <i class="fas fa-angle-left right"></i></p>
+							<a href="{% url 'allRequest' %}" class="nav-link"> <i class="nav-icon fas fa-tree"></i>
+								<p>All Requests</p>
 							</a>
-							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="{% url 'newRequest' %}"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>New Request</p>
-								</a></li>
-								<li class="nav-item"><a href="{% url 'assignRequest' %}"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Assigned Request</p>
-								</a></li>
-								<li class="nav-item"><a href="{% url 'teamontheway' %}"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Team On the Way</p>
-								</a></li>
-								<li class="nav-item"><a href="{% url 'workinprogress' %}"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Relief Work in Progress</p>
-								</a></li>
-								<li class="nav-item"><a href="{% url 'completeRequest' %}"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Completed Request</p>
-								</a></li>
-								<li class="nav-item"><a href="{% url 'allRequest' %}"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>All Requests</p>
-								</a></li>
-							</ul>
 						</li>
-
-						<li class="nav-item"><a href="#"
-							class="nav-link"> <i class="nav-icon fas fa-calendar-alt"></i>
-								<p>Date Report</p>
-						</a></li>
 
 						<li class="nav-item"><a href="{% url 'search' %}"
 							class="nav-link"> <i class="nav-icon fas fa-search"></i>
@@ -160,7 +129,7 @@
 								<p>Change Password</p>
 						</a></li>
 
-						<li class="nav-item"><a href="/logout" class="nav-link">
+						<li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">
 								<i class="nav-icon fas fa-power-off"></i>
 								<p>Logout</p>
 						</a></li>
@@ -179,7 +148,7 @@
 		</div>
 		<!-- /.content-wrapper -->
 		<footer class="main-footer">
-			<strong>Copyright &copy; <a href="#">Online Fraud Reporting System</a>.
+			<strong>Copyright &copy; <a href="{% url 'index' %}">Online Fraud Reporting System</a>.
 			</strong> All rights reserved.
 		</footer>
 
