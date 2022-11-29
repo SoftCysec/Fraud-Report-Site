@@ -23,7 +23,10 @@ class Fraudreport(models.Model):
     updationDate = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.fullName    
+        return self.fullName
+    
+    class Meta:  
+        db_table = "fraudreport"   
 
 class ReportHistory(models.Model):
     fraudreport = models.ForeignKey(Fraudreport,on_delete=models.CASCADE,null=True)

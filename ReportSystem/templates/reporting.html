@@ -19,7 +19,6 @@
             <hr>
             <form method="post">
                 {% csrf_token %}
-                {% if user.is_authenticated %}
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
@@ -48,7 +47,6 @@
                         <textarea name="Message" class="form-control" placeholder="Message...." required></textarea>
                     </div>
                 </div>
-                {% endif %}
                 <button type="submit" class="btn btn-primary float-right">Submit</button>
             </form>
         </div>

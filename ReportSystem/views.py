@@ -52,7 +52,8 @@ class LogoutView(View):
         return redirect('account_login')
 
 def status(request):
-    return render(request, 'viewStatusDetails.html')
+    fraudreport = Fraudreport.objects.all()  
+    return render(request, 'viewStatusDetails.html', {'fraudreport':fraudreport})
 
 def reporting(request):
     error = ""

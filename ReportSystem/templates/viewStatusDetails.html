@@ -1,0 +1,55 @@
+{% include 'navbar.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>View Status Details</title>
+</head>
+
+<body>
+    <img src="{% static 'images/fraud4.webp' %}" style="width:100%; height:70%;">
+    <br>
+    <div class="container mt-3">
+        <h5 class="page-title text-center">View Status Details</h5>
+        <hr>
+        <div class="card">
+            <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Mobile Number</th>
+                        <th>Location</th>
+                        <th>Message</th>
+                    </tr>
+                </table>
+                {% if fraudreport != 0 %}
+                <table id="example1" class="table table-bordered table-striped">
+                    <tr>
+                        <th colspan="5" class="text-center text-danger">Request Track History</th>
+                    </tr>
+
+                    {% for i in fraudreport %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.fullName}}</td>
+                        <td>{{i.mobileNumber}}</td>
+                        <td>{{i.location}}</td>
+                        <td>{{i.message}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% endif %} {% if fraudreport == 0 %}
+                <h4 align="center" style="color:red"> No Tracking history found </h4>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+</body>
+
+</html>
+
+{% include 'footer.html' %}
