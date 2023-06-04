@@ -19,7 +19,7 @@ class Fraudreport(models.Model):
     assignTo = models.ForeignKey(Team,on_delete=models.CASCADE,null=True)
     status = models.CharField(max_length=200,null=True)
     postingDate = models.DateTimeField(auto_now_add=True)
-    assignedTime = models.CharField(max_length=200,null=True)
+    assignedTime = models.DateTimeField(null=True)
     updationDate = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
